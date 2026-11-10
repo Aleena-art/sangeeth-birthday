@@ -1,0 +1,632 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sangeeth ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: #100609;
+    color: #fff0f3;
+    overflow-x: hidden;
+}
+
+section {
+    padding: 75px 20px;
+    text-align: center;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background:
+      linear-gradient(rgba(15,0,5,.75), rgba(15,0,5,.9)),
+      radial-gradient(circle, #7b1735, #100609);
+    padding: 30px 20px;
+}
+
+.heart {
+    color: #ff547c;
+    font-size: 55px;
+    animation: beat 1s infinite;
+}
+
+@keyframes beat {
+    50% { transform: scale(1.2); }
+}
+
+.hero h1 {
+    font-size: clamp(38px, 8vw, 70px);
+    color: #ffb6c8;
+    margin: 20px 0;
+}
+
+.hero h2 {
+    font-size: 25px;
+    color: #fff;
+    font-weight: normal;
+}
+
+.hero p {
+    margin-top: 15px;
+    color: #ffcbd7;
+    font-size: 18px;
+}
+
+.countdown {
+    margin: 30px 0;
+    padding: 18px 28px;
+    border: 1px solid #ff6689;
+    border-radius: 15px;
+    background: rgba(255,255,255,.06);
+    font-size: 20px;
+    color: #ffb6c8;
+}
+
+button {
+    background: #bd234f;
+    color: white;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    transition: .3s;
+}
+
+button:hover {
+    background: #ff547c;
+    transform: scale(1.05);
+}
+
+h2.section-title {
+    color: #ff91ad;
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    color: #e9b8c5;
+    margin-bottom: 35px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.gallery img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 2px solid #87324c;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+    border-color: #ff91ad;
+}
+
+.dark-section {
+    background: #1c0b12;
+}
+
+.reasons {
+    max-width: 750px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.reason {
+    background: #35121f;
+    border: 1px solid #743047;
+    border-radius: 15px;
+    padding: 25px 15px;
+    color: #ffdce5;
+    line-height: 1.6;
+}
+
+.reason span {
+    display: block;
+    color: #ff7395;
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.timeline {
+    max-width: 650px;
+    margin: auto;
+    text-align: left;
+    border-left: 2px solid #ff6689;
+    padding-left: 25px;
+}
+
+.event {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.event::before {
+    content: "❤";
+    position: absolute;
+    left: -36px;
+    color: #ff7395;
+    background: #100609;
+}
+
+.event h3 {
+    color: #ff9db5;
+    margin-bottom: 8px;
+}
+
+.event p {
+    color: #e9c2cc;
+    line-height: 1.6;
+}
+
+.letter-box {
+    max-width: 700px;
+    margin: auto;
+    background: #35121f;
+    padding: 30px 22px;
+    border-radius: 18px;
+    border: 1px solid #a34260;
+    line-height: 1.9;
+}
+
+.letter-content {
+    display: none;
+    margin-top: 25px;
+    text-align: left;
+    color: #ffe0e8;
+    white-space: pre-line;
+}
+
+.surprise {
+    background: linear-gradient(135deg, #551329, #a51d48);
+}
+
+#surpriseMessage {
+    display: none;
+    margin: 25px auto 0;
+    max-width: 600px;
+    color: #ffd5df;
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+footer {
+    padding: 30px 15px;
+    text-align: center;
+    background: #090306;
+    color: #dca0b1;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    background: rgba(0,0,0,.95);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal img {
+    max-width: 95%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+}
+
+.music-link {
+    color: #ffb6c8;
+    text-decoration: none;
+    border-bottom: 1px solid #ffb6c8;
+    padding-bottom: 3px;
+}
+
+.music-link:hover {
+    color: white;
+}
+
+@media(max-width: 600px) {
+    section {
+        padding: 55px 15px;
+    }
+
+    h2.section-title {
+        font-size: 28px;
+    }
+
+    .gallery img {
+        height: 240px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="heart">♥</div>
+
+    <p>To my favourite person,</p>
+
+    <h1>Happy Birthday<br>Sangeeth!</h1>
+
+    <h2>My Shundarii ❤️</h2>
+
+    <p>Today is all about you, my love.</p>
+
+    <div class="countdown" id="countdown">
+        Counting down to your special day...
+    </div>
+
+    <button onclick="document.getElementById('memories').scrollIntoView()">
+        Explore Our Memories ↓
+    </button>
+
+    <p style="margin-top:25px;">
+        A little website made with a lot of love.
+    </p>
+
+</section>
+
+
+<!-- PHOTO GALLERY -->
+<section id="memories">
+
+    <h2 class="section-title">Our Little World 📸</h2>
+
+    <p class="subtitle">
+        Every picture holds a memory I never want to forget.
+    </p>
+
+    <div class="gallery">
+
+        <img src="assets/photo1.jpg" alt="Our memory 1" onclick="openPhoto(this.src)">
+
+        <img src="assets/photo2.webp" alt="Our memory 2" onclick="openPhoto(this.src)">
+
+        <img src="assets/photo3.jpg" alt="Our memory 3" onclick="openPhoto(this.src)">
+
+        <img src="assets/photo4.jpg" alt="Our memory 4" onclick="openPhoto(this.src)">
+
+        <img src="assets/photo5.jpg" alt="Our memory 5" onclick="openPhoto(this.src)">
+
+        <img src="assets/photo6.jpg" alt="Our memory 6" onclick="openPhoto(this.src)">
+
+    </div>
+
+</section>
+
+
+<!-- REASONS -->
+<section class="dark-section">
+
+    <h2 class="section-title">Reasons Why I Love You ❤️</h2>
+
+    <p class="subtitle">A few reasons among a million others.</p>
+
+    <div class="reasons">
+
+        <div class="reason">
+            <span>♡</span>
+            The way you make even ordinary days special.
+        </div>
+
+        <div class="reason">
+            <span>♡</span>
+            Your kindness and the way you understand me.
+        </div>
+
+        <div class="reason">
+            <span>♡</span>
+            The little things you do that mean everything to me.
+        </div>
+
+        <div class="reason">
+            <span>♡</span>
+            Your smile, which I could never get tired of.
+        </div>
+
+        <div class="reason">
+            <span>♡</span>
+            The comfort of having you beside me.
+        </div>
+
+        <div class="reason">
+            <span>♡</span>
+            Simply because you are you.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TIMELINE -->
+<section>
+
+    <h2 class="section-title">Our Story Together 🥹</h2>
+
+    <p class="subtitle">Little moments that became our favourite story.</p>
+
+    <div class="timeline">
+
+        <div class="event">
+            <h3>Our Friendship</h3>
+            <p>From knowing each other since school days to becoming a special part of each other's lives.</p>
+        </div>
+
+        <div class="event">
+            <h3>2024 — The Beginning of Feelings</h3>
+            <p>Somewhere along the way, friendship started feeling like something more.</p>
+        </div>
+
+        <div class="event">
+            <h3>22 July 2025 — Our Special Day ❤️</h3>
+            <p>The beginning of our beautiful journey together.</p>
+        </div>
+
+        <div class="event">
+            <h3>More Memories to Come</h3>
+            <p>More birthdays, more adventures, more laughter and a lifetime of little moments.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LOVE LETTER -->
+<section class="dark-section">
+
+    <h2 class="section-title">A Letter For You 💌</h2>
+
+    <p class="subtitle">
+        Some feelings deserve their own little space.
+    </p>
+
+    <div class="letter-box">
+
+        <p style="font-size:22px;color:#ffb6c8;">
+            To my Shundarii ❤️
+        </p>
+
+        <button onclick="toggleLetter()" id="letterButton">
+            Open Your Birthday Letter 💌
+        </button>
+
+        <div class="letter-content" id="letterContent">
+My dearest Sangeeth,
+
+Happy Birthday, my love!
+
+I don't know how to put all my feelings into words, but I hope you know how special you are to me.
+
+Thank you for being patient with me, understanding me and making me feel loved in your own little ways.
+
+I may not always express everything perfectly, but please never doubt how much you mean to me.
+
+I wish you endless happiness, good health, success and everything your heart dreams of.
+
+I hope I get to celebrate many more birthdays with you, create countless memories and keep choosing each other through every season of life.
+
+You are my favourite person, my Shundarii.
+
+I love you more than these words can ever explain.
+
+Forever yours,
+Your girl ❤️
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SURPRISE -->
+<section class="surprise">
+
+    <h2 class="section-title">One Last Little Surprise 🎁</h2>
+
+    <p class="subtitle">
+        There's something I want you to remember.
+    </p>
+
+    <button onclick="showSurprise()">
+        Click For Your Surprise ❤️
+    </button>
+
+    <div id="surpriseMessage">
+        If I could choose again, in every lifetime and in every universe,
+        I would still choose you.
+
+        <br><br>
+
+        Happy Birthday, my Sangeeth!
+
+        <br>
+
+        I love you, Shundarii. ❤️
+    </div>
+
+</section>
+
+
+<!-- MUSIC -->
+<section class="dark-section">
+
+    <h2 class="section-title">Our Little Soundtrack 🎶</h2>
+
+    <p class="subtitle">
+        A song that reminds me of you.
+    </p>
+
+    <a class="music-link"
+       href="https://open.spotify.com/search/Those%20Eyes%20New%20West"
+       target="_blank">
+       Listen to Those Eyes – New West ♡
+    </a>
+
+    <p style="margin-top:18px;color:#dca0b1;font-size:14px;">
+        Tap the link to listen on Spotify.
+    </p>
+
+</section>
+
+
+<footer>
+
+    Made with endless love, just for you. ❤️
+
+    <p style="margin-top:10px;">
+        Happy Birthday, Shundarii!
+    </p>
+
+</footer>
+
+
+<!-- PHOTO VIEWER -->
+<div class="modal" id="photoModal" onclick="closePhoto()">
+
+    <span class="close">&times;</span>
+
+    <img id="largePhoto" alt="Our memory">
+
+</div>
+
+
+<script>
+
+// BIRTHDAY COUNTDOWN
+function updateCountdown() {
+
+    const birthday = new Date("2026-11-11T00:00:00");
+    const now = new Date();
+
+    const difference = birthday - now;
+
+    const countdown = document.getElementById("countdown");
+
+    if (difference <= 0) {
+        countdown.innerHTML = "It's your special day! Happy Birthday! ❤️";
+        return;
+    }
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+
+    const hours = Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+    );
+
+    const minutes = Math.floor(
+        (difference / (1000 * 60)) % 60
+    );
+
+    const seconds = Math.floor(
+        (difference / 1000) % 60
+    );
+
+    countdown.innerHTML =
+        days + " Days " +
+        hours + " Hours " +
+        minutes + " Minutes " +
+        seconds + " Seconds ❤️";
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+
+// LOVE LETTER
+function toggleLetter() {
+
+    const letter = document.getElementById("letterContent");
+    const button = document.getElementById("letterButton");
+
+    if (letter.style.display === "block") {
+
+        letter.style.display = "none";
+        button.innerHTML = "Open Your Birthday Letter 💌";
+
+    } else {
+
+        letter.style.display = "block";
+        button.innerHTML = "Close Letter ♡";
+
+    }
+}
+
+
+// SURPRISE BUTTON
+function showSurprise() {
+
+    const message = document.getElementById("surpriseMessage");
+
+    if (message.style.display === "block") {
+        message.style.display = "none";
+    } else {
+        message.style.display = "block";
+    }
+}
+
+
+// PHOTO VIEWER
+function openPhoto(source) {
+
+    document.getElementById("photoModal").style.display = "flex";
+
+    document.getElementById("largePhoto").src = source;
+
+}
+
+function closePhoto() {
+
+    document.getElementById("photoModal").style.display = "none";
+
+}
+
+</script>
+
+</body>
+</html>
